@@ -2,6 +2,7 @@
 
 import AppShell from "@/components/layout/AppShell";
 import DrawingList from "@/components/sidebar/DrawingList";
+import Breadcrumb from "@/components/viewer/Breadcrumb";
 import DisciplineTab from "@/components/viewer/DisciplineTab";
 import { getMetadata } from "@/lib/metadata";
 import { useAppSelector } from "@/store/hooks";
@@ -24,6 +25,8 @@ export default function Home() {
   return (
     <AppShell sidebar={<DrawingList drawings={metadata.drawings} />}>
       <div className="flex flex-col h-full">
+        <Breadcrumb drawings={metadata.drawings} />
+
         {selectedDrawingId !== "00" && (
           <DisciplineTab drawing={metadata.drawings[selectedDrawingId]} />
         )}
