@@ -4,6 +4,8 @@ import AppShell from "@/components/layout/AppShell";
 import DrawingList from "@/components/sidebar/DrawingList";
 import Breadcrumb from "@/components/viewer/Breadcrumb";
 import DisciplineTab from "@/components/viewer/DisciplineTab";
+import DrawingViewer from "@/components/viewer/DrawingViewer";
+import RevisionTimeline from "@/components/viewer/RevisionTimeline";
 import { getMetadata } from "@/lib/metadata";
 import { useAppSelector } from "@/store/hooks";
 import { Metadata } from "@/types/drawing";
@@ -30,7 +32,9 @@ export default function Home() {
         {selectedDrawingId !== "00" && (
           <DisciplineTab drawing={metadata.drawings[selectedDrawingId]} />
         )}
-        <div className="p-4">메인 영역</div>
+        <DrawingViewer drawings={metadata.drawings} />
+
+        <RevisionTimeline drawings={metadata.drawings} />
       </div>
     </AppShell>
   );

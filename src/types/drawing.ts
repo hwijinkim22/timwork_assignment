@@ -21,7 +21,7 @@ interface Polygon {
 }
 
 interface Revision {
-  versin: string;
+  version: string;
   image: string;
   date: string;
   description: string;
